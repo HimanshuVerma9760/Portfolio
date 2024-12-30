@@ -1,65 +1,84 @@
-import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import { AppBar, Box, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-
-const navVariants = {
-  hidden: { opacity: 0, y: -50 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-};
-
+import { fontWeight } from "@mui/system";
 export default function Header() {
+  const links = ["About", "Skills", "Experience", "Projects", "Education"];
   return (
     <>
-      <motion.nav
-        className="header"
-        initial="hidden"
-        animate="visible"
-        variants={navVariants}
+      <Box
+        sx={{ display: "flex", flexDirection: "row", justifyContent: "center" }}
       >
-        <ul>
-          <motion.li
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.2, ease: "easeInOut" }}
+        <AppBar
+          sx={{
+            backgroundColor: "rgb(10, 10, 15)",
+            boxShadow: "none",
+            display: "flex",
+            flexDirection: "row",
+            gap: "10rem",
+            padding: "2rem",
+            left: "12rem",
+            alignItems: "center",
+            maxHeight:"5rem"
+          }}
+        >
+          <Typography variant="h5" fontWeight={700}>Himanshu Verma</Typography>
+          <Typography
+            variant="h6"
+            sx={{ display: "flex", flexDirection: "row", gap: "1rem", fontWeight:"500"}}
           >
-            <Link to="/" style={{ color: "white", textDecoration: "none" }}>
-              Home
-            </Link>
-          </motion.li>
-          <motion.li
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.2, ease: "easeInOut" }}
+            {links.map((eachLink) => (
+              <Link style={{ textDecoration: "none", color: "white" }}>
+                <motion.div whileHover={{ color: "blue" }}>
+                  {eachLink}
+                </motion.div>
+              </Link>
+            ))}
+          </Typography>
+          <Typography
+            component={Link}
+            to="https://github.com/himanshuverma9760"
+            sx={{
+              textDecoration: "none",
+              color: "rgb(88, 88, 249)",
+              borderRadius: "2rem",
+              border: "1.8px solid rgb(88, 88, 249)",
+              padding: "0.5rem 1rem",
+              fontSize: "16px",
+              ":hover": {
+                backgroundColor: "rgb(88, 88, 249)",
+                color: "white",
+                transition: "0.3s",
+              },
+            }}
+            align="center"
           >
-            <Link to="/about" style={{ color: "white", textDecoration: "none" }}>
-              About
-            </Link>
-          </motion.li>
-          <motion.li
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.2, ease: "easeInOut" }}
-          >
-            <Link
-              to="/projects"
-              style={{ color: "white", textDecoration: "none" }}
-            >
-              Projects
-            </Link>
-          </motion.li>
-          <motion.li
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.2, ease: "easeInOut" }}
-          >
-            <Link
-              to="/contact"
-              style={{ color: "white", textDecoration: "none" }}
-            >
-              Contact
-            </Link>
-          </motion.li>
-        </ul>
-      </motion.nav>
-      <div>
-        <Outlet />
-      </div>
+            GitHub Profile
+          </Typography>
+        </AppBar>
+      </Box>
     </>
   );
+}
+
+{
+  /* <motion.div> */
+}
+{
+  /* <Link
+                to="https://github.com/himanshuverma9760"
+                style={{
+                  textDecoration: "none",
+                  color: "rgb(88, 88, 249)",
+                  borderRadius: "2rem",
+                  border: "1.8px solid rgb(88, 88, 249)",
+                  padding: "1rem",
+                  fontSize: "16px",
+                }}
+              >
+                Github Profile
+              </Link> */
+}
+{
+  /* </motion.div> */
 }
