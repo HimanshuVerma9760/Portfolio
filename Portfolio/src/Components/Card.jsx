@@ -1,9 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Grid2, Typography } from "@mui/material";
-import { Box } from "@mui/system";
+import { Box, useMediaQuery } from "@mui/system";
 
 const Hover3DCard = ({ skills, name }) => {
+  const smallScreen = useMediaQuery("(max-width:520px)");
+
   const handleMouseMove = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left;
@@ -25,14 +27,14 @@ const Hover3DCard = ({ skills, name }) => {
     <motion.div
       className="hover-3d-card"
       style={{
-        width: "32rem",
+        maxWidth: `${smallScreen ? "25rem" : "32rem"}`,
         minHeight: "12rem",
         background: "rgba(17, 25, 40, 0.83)",
         color: "#fff",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        fontSize: "18px",
+        fontSize: `${smallScreen ? "10px" : "18px"}`,
         fontWeight: "bold",
         borderRadius: "15px",
         cursor: "pointer",
@@ -52,12 +54,12 @@ const Hover3DCard = ({ skills, name }) => {
         gap="20px"
         justifyContent="center"
         alignItems="center"
-        padding="10px"
+        padding={{ xs: `${smallScreen ? "0px" : "15px"}`, sm: "10px" }}
         maxWidth="100%"
         color="rgb(177, 178, 179)"
       >
         <Grid2>
-          <Typography fontSize="30px" fontWeight={600}>
+          <Typography fontSize={{ xs: "25px", sm: "30px" }} fontWeight={600}>
             {name}
           </Typography>
         </Grid2>
@@ -74,7 +76,7 @@ const Hover3DCard = ({ skills, name }) => {
                 border: "1px solid rgba(242, 243, 244, 0.5)",
                 padding: "10px 18px",
                 borderRadius: "5px",
-                fontSize: "16px",
+                fontSize: { xs: "13px", sm: "16px" },
                 textAlign: "center",
                 whiteSpace: "nowrap",
               }}

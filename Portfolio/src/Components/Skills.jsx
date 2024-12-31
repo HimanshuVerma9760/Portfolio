@@ -42,25 +42,35 @@ export default function Skills() {
       "Java",
       "Data Structures",
       "Algorithims",
-      "Deployment", 
+      "Deployment",
       "Postman",
       "My Sql Server",
       "VS Code",
       "Netlify",
       "Render",
-      "GitHub"
+      "GitHub",
     ],
   };
 
   return (
     <>
       <Box>
-        <Grid2 display="flex" flexDirection="column" gap="5rem">
+        <Grid2 display="flex" flexDirection="column" gap={{xs:'2rem',sm:"5rem"}}>
           <Grid2>
-            <Typography variant="h2" align="center" marginBottom='1rem' fontWeight={700}>
+            <Typography
+              variant="h2"
+              sx={{ fontSize: { xs: "3rem", sm: "3.75rem" } }}
+              align="center"
+              marginBottom="1rem"
+              fontWeight={700}
+            >
               Skills
             </Typography>
-            <Typography variant="h5" align="center" sx={{ color: "gray" }}>
+            <Typography
+              variant="h5"
+              align="center"
+              sx={{ color: "gray", fontSize: { xs: "1rem", sm: "1.5rem" } }}
+            >
               Here is the collection of my skills, I have been working and have
               Expertise on!
             </Typography>

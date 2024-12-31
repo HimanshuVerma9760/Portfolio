@@ -1,5 +1,5 @@
 import { Button, duration, Grid2, Typography } from "@mui/material";
-import { Box, Grid } from "@mui/system";
+import { Box, Grid, useMediaQuery } from "@mui/system";
 import React from "react";
 import { Typewriter } from "react-simple-typewriter";
 import Header from "./Header";
@@ -7,28 +7,39 @@ import { animate, motion } from "framer-motion";
 import { Download } from "@mui/icons-material";
 
 const Introduction = () => {
+  const smallScreen = useMediaQuery("(max-width:412px)");
+  const largerScreen = useMediaQuery("(min-width:1090px)");
   return (
     <Box
       sx={{
         display: "flex",
         flexDirection: "column",
         gap: "5rem",
-        marginLeft: "14rem",
+        marginLeft: `${largerScreen ? "14rem" : "0rem"}`,
       }}
     >
       <Grid2>
         <Header />
       </Grid2>
       <Grid2
-        marginTop="7rem"
-        marginRight="15rem"
+        marginTop={{ xs: "1rem", sm: "7rem" }}
+        marginRight={{ xs: "0rem", sm: "15rem" }}
         display="flex"
-        flexDirection="row"
-        justifyContent="space-between"
+        flexDirection={{ xs: "column-reverse", sm: "row" }}
+        sx={{
+          gap: { xs: "3rem", sm: "5rem" },
+          justifyContent: { xs: "center", sm: "space-between" },
+          alignItems: "center",
+        }}
       >
         <Grid2
-          maxWidth="50%"
-          sx={{ display: "flex", flexDirection: "column", gap: "1rem" }}
+          maxWidth={{ xs: "100%", sm: "50%" }}
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "1rem",
+            textAlign: { xs: "center", sm: "left" },
+          }}
         >
           <Grid2>
             <motion.div
@@ -36,7 +47,11 @@ const Introduction = () => {
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 1, type: "spring", damping: 6 }}
             >
-              <Typography variant="h2" fontWeight={600}>
+              <Typography
+                variant="h2"
+                sx={{ fontSize: { xs: "2.2rem", sm: "3.75rem" } }}
+                fontWeight={600}
+              >
                 Hi, I am&nbsp;
                 <br /> Himanshu Verma
               </Typography>
@@ -76,7 +91,11 @@ const Introduction = () => {
             >
               <Typography
                 variant="p"
-                sx={{ color: "grey", fontSize: "17px", fontWeight: "500" }}
+                sx={{
+                  color: "grey",
+                  fontSize: { xs: "13px", sm: "17px" },
+                  fontWeight: "500",
+                }}
               >
                 With a strong foundation in the MERN stack (MongoDB, Express.js,
                 React, and Node.js), expertise is centered around building
@@ -104,6 +123,7 @@ const Introduction = () => {
                     color: "white",
                   },
                   transition: "0.3s",
+                  fontSize: { sm: "initial", xs: "12px" },
                 }}
               >
                 Resume
@@ -115,7 +135,7 @@ const Introduction = () => {
           <Grid2>
             <img
               src="/himanshu.jpg"
-              height="500rem"
+              height={!smallScreen ? "500rem" : "365rem"}
               style={{
                 borderRadius: "15rem",
                 border: "1px solid whitesmoke",
