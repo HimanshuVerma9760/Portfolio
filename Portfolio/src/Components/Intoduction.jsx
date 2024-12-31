@@ -15,14 +15,11 @@ const Introduction = () => {
         display: "flex",
         flexDirection: "column",
         gap: "5rem",
-        marginLeft: `${largerScreen ? "14rem" : "0rem"}`,
+        marginLeft: { xs: "0rem", sm: `${largerScreen ? "14rem" : "3rem"}` },
       }}
     >
-      <Grid2>
-        <Header />
-      </Grid2>
       <Grid2
-        marginTop={{ xs: "1rem", sm: "7rem" }}
+        marginTop={{ xs: "0.5rem", sm: "5rem" }}
         marginRight={{ xs: "0rem", sm: "15rem" }}
         display="flex"
         flexDirection={{ xs: "column-reverse", sm: "row" }}
@@ -49,7 +46,7 @@ const Introduction = () => {
             >
               <Typography
                 variant="h2"
-                sx={{ fontSize: { xs: "2.2rem", sm: "3.75rem" } }}
+                sx={{ fontSize: `${!largerScreen ? "2.2rem" : "3.75rem"}` }}
                 fontWeight={600}
               >
                 Hi, I am&nbsp;
@@ -93,7 +90,7 @@ const Introduction = () => {
                 variant="p"
                 sx={{
                   color: "grey",
-                  fontSize: { xs: "13px", sm: "17px" },
+                  fontSize: `${!largerScreen ? "13px" : "17px"}`,
                   fontWeight: "500",
                 }}
               >
@@ -113,6 +110,7 @@ const Introduction = () => {
               </Typography>
               <Button
                 href="https://drive.google.com/file/d/1Asw9ZDcNldc1mNfvOSkBed56WckAn_JA/view?usp=drive_link"
+                target="_blank"
                 startIcon={<Download />}
                 sx={{
                   padding: "8px 15px",

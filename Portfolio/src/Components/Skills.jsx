@@ -59,7 +59,7 @@ export default function Skills() {
           <Grid2>
             <Typography
               variant="h2"
-              sx={{ fontSize: { xs: "3rem", sm: "3.75rem" } }}
+              sx={{ fontSize: { xs: "45px", sm: "52px" } }}
               align="center"
               marginBottom="1rem"
               fontWeight={700}
@@ -69,7 +69,7 @@ export default function Skills() {
             <Typography
               variant="h5"
               align="center"
-              sx={{ color: "gray", fontSize: { xs: "1rem", sm: "1.5rem" } }}
+              sx={{ color: "gray", fontSize: { xs: "16px", sm: "22px" } }}
             >
               Here is the collection of my skills, I have been working and have
               Expertise on!

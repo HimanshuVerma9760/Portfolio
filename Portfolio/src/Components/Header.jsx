@@ -1,59 +1,63 @@
 import {
   AppBar,
   Box,
-  Divider,
   Drawer,
   IconButton,
   List,
   ListItem,
   ListItemButton,
-  ListItemIcon,
-  ListItemText,
   Typography,
   useMediaQuery,
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
+  ContactMail,
   Engineering,
   FormatListBulleted,
-  Inbox,
   Info,
-  ListAltOutlined,
-  Mail,
   MilitaryTech,
   School,
-  Work,
 } from "@mui/icons-material";
 import { useState } from "react";
+import { Grid } from "@mui/system";
 export default function Header() {
   const links = [
-    { name: "About", icon: <Info /> },
-    { name: "Skills", icon: <MilitaryTech /> },
-    { name: "Experience", icon: <Work /> },
-    { name: "Projects", icon: <Engineering /> },
-    { name: "Education", icon: <School /> },
+    { name: "About", icon: <Info />, link: "#introduction" },
+    { name: "Skills", icon: <MilitaryTech />, link: "#skills" },
+    { name: "Projects", icon: <Engineering />, link: "#projects" },
+    { name: "Education", icon: <School />, link: "#education" },
+    { name: "Contact", icon: <ContactMail />, link: "#footer" },
   ];
   const smallScreen = useMediaQuery("(min-width:1090px)");
   const XSmallScreen = useMediaQuery("(max-width:360px)");
-  const largerScreen = useMediaQuery("(max-width:1288px)");
 
   const [toggleDrawer, setToggleDrawer] = useState(false);
+
   const DrawerList = (
     <Box sx={{ width: 250 }} role="presentation">
       <List>
         {links.map((link, index) => (
           <ListItem key={index}>
-            <ListItemButton sx={{ color: "gray" }}>
-              <Typography textAlign="center" sx={{display:'flex', gap:'3rem'}}>
-                {link.icon}
-                {link.name}
+            <ListItemButton onClick={() => setToggleDrawer(false)}>
+              <Typography align="center">
+                <a
+                  href={link.link}
+                  style={{
+                    display: "flex",
+                    gap: "3rem",
+                    color: "gray",
+                    textDecoration: "none",
+                  }}
+                >
+                  {link.icon}
+                  {link.name}
+                </a>
               </Typography>
             </ListItemButton>
           </ListItem>
         ))}
       </List>
-      {/* <Divider /> */}
     </Box>
   );
 
@@ -68,34 +72,41 @@ export default function Header() {
             boxShadow: "none",
             display: "flex",
             flexDirection: "row",
-            gap: "10rem",
+            gap: "1.5rem",
             padding: "2rem",
-            left: `${largerScreen ? "0rem" : "12rem"}`,
             alignItems: "center",
             maxHeight: "5rem",
+            justifyContent: `${smallScreen ? "space-evenly" : "space-between"}`,
           }}
         >
-          <Typography variant="h5" fontSize={{xs:XSmallScreen?"12px":"15px",sm:"25px"}} fontWeight={700}>
+          <Typography
+            fontSize={{ xs: XSmallScreen ? "12px" : "15px", sm: "25px" }}
+            fontWeight={700}
+          >
             Himanshu Verma
           </Typography>
           {smallScreen ? (
-            <Typography
-              variant="h6"
+            <Grid
               sx={{
                 display: "flex",
                 flexDirection: "row",
                 gap: "1rem",
                 fontWeight: "500",
+                fontSize: "1.3rem",
               }}
             >
               {links.map((eachLink) => (
-                <Link style={{ textDecoration: "none", color: "white" }}>
-                  <motion.div whileHover={{ color: "blue" }}>
+                <a
+                  href={eachLink.link}
+                  style={{ textDecoration: "none", color: "white" }}
+                  key={Math.random()}
+                >
+                  <motion.div whileHover={{ color: "rgb(0, 102, 204)" }}>
                     {eachLink.name}
                   </motion.div>
-                </Link>
+                </a>
               ))}
-            </Typography>
+            </Grid>
           ) : (
             <>
               <IconButton onClick={() => setToggleDrawer(true)}>
@@ -113,6 +124,7 @@ export default function Header() {
             <Typography
               component={Link}
               to="https://github.com/himanshuverma9760"
+              target="_blank"
               sx={{
                 textDecoration: "none",
                 color: "rgb(88, 88, 249)",

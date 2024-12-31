@@ -102,12 +102,12 @@ const Card = ({ data }) => {
       }}
     >
       <motion.div
-        initial={{ y: 150 }}
+        initial={{ y: 100 }}
         whileInView={{
           y: 0,
           transition: {
             type: "spring",
-            bounce: 0.4,
+            bounce: 0,
             duration: 0.8,
           },
         }}
