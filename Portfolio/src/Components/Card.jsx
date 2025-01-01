@@ -54,7 +54,7 @@ const Hover3DCard = ({ skills, name }) => {
         gap="20px"
         justifyContent="center"
         alignItems="center"
-        padding={{ xs: `${smallScreen ? "0px" : "15px"}`, sm: "10px" }}
+        padding={{ xs: `${smallScreen ? "0px" : "15px"}`, sm: "0px" }}
         maxWidth="100%"
         color="rgb(177, 178, 179)"
       >
@@ -79,9 +79,13 @@ const Hover3DCard = ({ skills, name }) => {
                 fontSize: { xs: "13px", sm: "16px" },
                 textAlign: "center",
                 whiteSpace: "nowrap",
+                display:'flex',
+                gap:'10px'
+                
               }}
             >
-              {eachSkill}
+              <Typography color="yellow" fontSize='20px'>{eachSkill.icon}</Typography>
+              <Typography>{eachSkill.skill}</Typography>
             </Typography>
           ))}
         </Grid2>

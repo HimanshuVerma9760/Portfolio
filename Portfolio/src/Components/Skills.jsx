@@ -1,61 +1,97 @@
 import { Grid2, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import Card from "./Card";
+import {
+  Api,
+  Css,
+  DataObject,
+  EnhancedEncryption,
+  GitHub,
+  Html,
+  Javascript,
+} from "@mui/icons-material";
+import {
+  FaBootstrap,
+  FaDatabase,
+  FaJava,
+  FaNodeJs,
+  FaReact,
+} from "react-icons/fa";
+import {
+  SiExpress,
+  SiJsonwebtokens,
+  SiMongodb,
+  SiMongoose,
+  SiNetlify,
+  SiPostman,
+  SiReactrouter,
+  SiRedux,
+  SiRender,
+  SiSession,
+  SiSocketdotio,
+  SiSqlite,
+} from "react-icons/si";
+import { SiMaterialdesign as SiMaterialUi } from "react-icons/si";
+import { FiFramer } from "react-icons/fi";
+import { AiOutlineDeploymentUnit } from "react-icons/ai";
+import { DiVisualstudio } from "react-icons/di";
 
 export default function Skills() {
   const frontend = {
     name: "Frontend",
     skills: [
-      "HTML5",
-      "CSS3",
-      "JavaScript (ES6+)",
-      "React.js",
-      "Redux-Toolkit",
-      "React Router",
-      "Material-UI (MUI)",
-      "Bootstrap",
-      "Tailwind CSS",
-      "Framer Motion",
-      "CryptoJs",
-      "Fetch API",
+      { skill: "HTML5", icon: <Html /> },
+      { skill: "CSS3", icon: <Css /> },
+      { skill: "JavaScript (ES6+)", icon: <Javascript /> },
+      { skill: "React.js", icon: <FaReact /> },
+      { skill: "Redux-Toolkit", icon: <SiRedux /> },
+      { skill: "React Router", icon: <SiReactrouter /> },
+      { skill: "Material-UI (MUI)", icon: <SiMaterialUi /> },
+      { skill: "Bootstrap", icon: <FaBootstrap /> },
+      { skill: "Framer Motion", icon: <FiFramer /> },
+      { skill: "CryptoJs", icon: <EnhancedEncryption /> },
     ],
   };
   const backend = {
     name: "Backend",
     skills: [
-      "Node.js",
-      "Express.js",
-      "MongoDB",
-      "Mongoose",
-      "REST APIs",
-      "JWT (JSON Web Token)",
-      "Session and Cookies",
-      "Socket.IO",
-      "Bcrypt.js",
-      "MVC Architechture",
+      { skill: "Node.js", icon: <FaNodeJs /> },
+      { skill: "Express.js", icon: <SiExpress /> },
+      { skill: "MongoDB", icon: <SiMongodb /> },
+      { skill: "Mongoose", icon: <SiMongoose /> },
+      { skill: "REST APIs", icon: <Api /> },
+      { skill: "JWT (JSON Web Token)", icon: <SiJsonwebtokens /> },
+      { skill: "Session and Cookies", icon: <SiSession /> },
+      { skill: "Socket.IO", icon: <SiSocketdotio /> },
+      { skill: "Bcrypt.js", icon: <EnhancedEncryption /> },
+      { skill: "MVC Architechture", icon: <FaNodeJs /> },
     ],
   };
 
   const More = {
     name: "Other",
     skills: [
-      "Java",
-      "Data Structures",
-      "Algorithims",
-      "Deployment",
-      "Postman",
-      "My Sql Server",
-      "VS Code",
-      "Netlify",
-      "Render",
-      "GitHub",
+      { skill: "Java", icon: <FaJava /> },
+      { skill: "Data Structures", icon: <DataObject /> },
+      { skill: "Algorithims", icon: <FaDatabase /> },
+      { skill: "Deployment", icon: <AiOutlineDeploymentUnit /> },
+      { skill: "Postman", icon: <SiPostman /> },
+      { skill: "My Sql Server", icon: <SiSqlite /> },
+      { skill: "VS Code", icon: <DiVisualstudio /> },
+      { skill: "Netlify", icon: <SiNetlify /> },
+      { skill: "Render", icon: <SiRender /> },
+      { skill: "GitHub", icon: <GitHub /> },
     ],
   };
 
   return (
     <>
       <Box>
-        <Grid2 display="flex" flexDirection="column" gap={{xs:'2rem',sm:"5rem"}}>
+        <Grid2
+          display="flex"
+          flexDirection="column"
+          gap={{ xs: "2rem", sm: "5rem" }}
+        >
           <Grid2>
             <Typography
               variant="h2"
