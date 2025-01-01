@@ -81,7 +81,6 @@ const Hover3DCard = ({ skills, name }) => {
                 whiteSpace: "nowrap",
                 display:'flex',
                 gap:'10px'
-                
               }}
             >
               <Typography color="yellow" fontSize='20px'>{eachSkill.icon}</Typography>
